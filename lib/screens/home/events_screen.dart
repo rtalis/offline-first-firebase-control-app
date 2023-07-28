@@ -17,18 +17,17 @@ class EventsPage extends StatefulWidget {
 class _EventsPageState extends State<EventsPage> {
   String _searchText = '';
   final List<String> _selectedFilters = [];
-  bool _isLoading = true; 
-  bool _empty = true;// Added isLoading variable
+  bool _isLoading = true;
+  bool _empty = true; // Added isLoading variable
   @override
   void initState() {
     super.initState();
     Future.delayed(const Duration(milliseconds: 4000), () {
-       if (_empty) {
-         setState(() {
+      if (_empty) {
+        setState(() {
           _isLoading = false;
         });
-       }
-      
+      }
     });
   }
 
@@ -269,7 +268,7 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
               setState(() {
                 _isEditing = !_isEditing;
               });
-              if (_isEditing) {
+              if (!_isEditing) {
                 // Save the edited event details
                 Event updatedEvent = Event(
                   id: widget.event.id,
